@@ -4,8 +4,10 @@ streamlit.title('my parents new healthy dinner')
 
 streamlit.header('breakfast menu')
 
-streamlit.text('omega 3 & blueberry oatmeal')
+streamlit.text('🍌🥭 omega 3 & blueberry oatmeal 🥝🍇')
 
-streamlit.text('kale, spinach and roxket smoothie')
+streamlit.text('🍌🥭 kale, spinach and roxket smoothie 🥝🍇')
 
-streamlit.text('hard boiled egg')
+streamlit.text('🍌🥭 hard boiled egg 🥝🍇')
+
+streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
