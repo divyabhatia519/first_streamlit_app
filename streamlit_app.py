@@ -12,7 +12,6 @@ streamlit.text('🍌🥭 omega 3 & blueberry oatmeal 🥝🍇')
 streamlit.text('🍌🥭 kale, spinach and roxket smoothie 🥝🍇')
 streamlit.text('🍌🥭 hard boiled egg 🥝🍇')
 
-# import pandas
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
  
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
@@ -43,11 +42,8 @@ try:
    
 except URLError as e:
  streamlit.error()
-
 streamlit.write('The user entered ', fruit_choice)
-
 streamlit.stop()
-
 streamlit.header("the fruit load list contains:")
 
 def get_fruit_load_list():
@@ -59,6 +55,7 @@ def get_fruit_load_list():
 if streamlit.button('Get fruit laod list'):
  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
  my_data_rows = get_fruit_load_list()
+ my_cnx.close()
  streamlit.dataframe(my_data_rows)
 
 #allow the user to add a fruit to tje list
