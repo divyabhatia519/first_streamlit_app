@@ -71,7 +71,7 @@ if streamlit.button('Add a fruit to the list'):
 
 
 
-#streamlit.stop()
+streamlit.stop()
 
 
 
