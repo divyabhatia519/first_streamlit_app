@@ -19,6 +19,7 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 
 # Let's put a pick list here so they can pick the fruit they want to include 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
+
 fruit_to_show = my_fruit_list.loc[fruits_selected]
 
 # Display the table on the page.
@@ -42,10 +43,9 @@ try:
    
 except URLError as e:
  streamlit.error()
-streamlit.write('The user entered ', fruit_choice)
-streamlit.stop()
+ 
 streamlit.header("the fruit load list contains:")
-
+# snowflake related functions
 def get_fruit_load_list():
  with my_cnx.cursor() as my_cur:
   my_cur.execute("SELECT * FROM fruit_load_list")
@@ -55,8 +55,12 @@ def get_fruit_load_list():
 if streamlit.button('Get fruit laod list'):
  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
  my_data_rows = get_fruit_load_list()
- my_cnx.close()
+# my_cnx.close()
  streamlit.dataframe(my_data_rows)
+
+
+# streamlit.write('The user entered ', fruit_choice)
+streamlit.stop()
 
 #allow the user to add a fruit to tje list
 def insert_row_snowflake (new_fruit):
